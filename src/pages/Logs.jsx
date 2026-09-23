@@ -163,7 +163,7 @@ export default function Logs() {
                     </td>
                     <td className="muted">{t.profiles?.full_name || '—'}</td>
                     <td className="muted small nowrap">
-                      {t.group_id ? t.group_id.slice(0, 6) : '—'}
+                      {s.group_id ? s.group_id.slice(0, 6) : '—'}
                     </td>
                   </tr>
                 ))}

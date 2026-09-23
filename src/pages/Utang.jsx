@@ -44,11 +44,8 @@ export default function Utang() {
           <p className="muted">Borrowers, balances, and credit history.</p>
         </div>
         <div className="row">
-          <button className="btn light" onClick={() => setModal({ type: 'borrower' })}>
+          <button className="btn dark" onClick={() => setModal({ type: 'borrower' })}>
             + New Borrower
-          </button>
-          <button className="btn dark" onClick={() => setModal({ type: 'utang' })}>
-            + Add Utang
           </button>
         </div>
       </header>
