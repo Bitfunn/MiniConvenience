@@ -13,7 +13,7 @@ export default function Logs() {
     const [{ data: s }, { data: u }] = await Promise.all([
       supabase.from('sales')
         .select(`
-          id, total, quantity, unit_price, payment_type, created_at,
+          id, total, quantity, unit_price, payment_type, created_at, group_id,
           products(name),
           borrowers(name),
           profiles(full_name)
@@ -142,6 +142,7 @@ export default function Logs() {
                   <th>Product</th>
                   <th className="right">Amount</th>
                   <th>Staff</th>
+                  <th>Basket</th>
                 </tr>
               </thead>
               <tbody>
@@ -161,10 +162,13 @@ export default function Logs() {
                       </strong>
                     </td>
                     <td className="muted">{t.profiles?.full_name || '—'}</td>
+                    <td className="muted small nowrap">
+                      {t.group_id ? t.group_id.slice(0, 6) : '—'}
+                    </td>
                   </tr>
                 ))}
                 {!filteredUtang.length && !loading && (
-                  <tr><td colSpan="6" className="muted center">No utang logs.</td></tr>
+                  <tr><td colSpan="7" className="muted center">No utang logs.</td></tr>
                 )}
               </tbody>
             </table>
